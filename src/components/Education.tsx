@@ -17,22 +17,22 @@ const educationData: EducationItem[] = [
             position: 'Créteil, France',
             startDate: 'September 2023',
             endDate: 'Present',
-            courses: ['Statistics and Data Analysis', 'Information System', 'Programming for Communication', 'Networks', 'Life Cycle'],
+            courses: ['Statistics and Data Analysis', 'Information System', 'Database Systems' ,'Programming for Communication', 'Networks', 'Software Life Cycle'],
             img: episen
       },
       {
             schoolName: "Public School of Health and Digital Engineering (EPISEN)",
-            position: 'Créteil, France',
-            startDate: 'September 2023',
-            endDate: 'Present',
-            courses: ['Statistics and Data Analysis', 'Information System', 'Programming for Communication', 'Networks', 'Life Cycle'],
+            position: 'Yaoundé, Cameroon',
+            startDate: 'September 2019',
+            endDate: 'July 2022',
+            courses: ['Data Mining', 'Object Oriented Progamming', 'Algorithmic and complexity ', 'Optimisation', 'Machine Learning', 'Software Engineering'],
             img: uy1
       }
 ];
 
-const Experience: React.FC = () => {
+const Education: React.FC = () => {
       return (
-            <section className="mt-32 container mx-auto">
+            <section id='education' className="mt-32 container mx-auto">
                   <div className='opacity-100 text-center transform-none'>
                         <div className="mb-16">
                               <h2 className="font-incognito text-4xl mb-4 font-bold tracking-tight capitalize">Education</h2>
@@ -77,4 +77,4 @@ const Experience: React.FC = () => {
       );
 };
 
-export default Experience;
+export default Education;

@@ -3,7 +3,7 @@ import React from 'react';
 import { FaLinkedin, FaGithub, FaTwitter, FaGitlab } from 'react-icons/fa';
 
 const footerData = {
-  aboutMe: "Apprentice Engineer specializing in web and mobile applications.",
+  aboutMe: "Apprentice Engineer specializing in web , mobile applications and data science.",
   services: ["Web Development", "App Development", "DataScience", "Desktop  Development" , ],
   contact: {
     email: "njonougaby45@gmail.com",

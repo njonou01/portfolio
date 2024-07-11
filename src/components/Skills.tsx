@@ -53,7 +53,7 @@ const skillsData: Skill[] = [
 
 const Skills: React.FC = () => {
       return (
-            <section className="py-20">
+            <section id='skills' className="py-20">
                   <div className="container mx-auto px-6">
                         <div className='opacity-100 text-center transform-none container mx-auto'>
                               <div className="mb-16">

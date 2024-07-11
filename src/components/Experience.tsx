@@ -70,7 +70,7 @@ const experienceData: ExperienceItem[] = [
 
 const Experience: React.FC = () => {
       return (
-            <section className="mt-32 container mx-auto">
+            <section id='experience' className="mt-32 container mx-auto">
                   <div className='opacity-100 text-center transform-none'>
                         <div className="mb-16">
                               <h2 className="font-incognito text-4xl mb-4 font-bold tracking-tight">Work Experience</h2>

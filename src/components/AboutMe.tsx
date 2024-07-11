@@ -27,7 +27,7 @@ const aboutMeText = {
 
 const AboutMe = () => {
     return (
-        <section className="pt-10 overflow-hidden dark:bg-gray-800 md:pt-0 sm:pt-16 2xl:pt-16">
+        <section id='about' className="pt-10 overflow-hidden dark:bg-gray-800 md:pt-0 sm:pt-16 2xl:pt-16">
             <div className='container text-center mx-auto opacity-100 transform-none'>
                 <div className="mb-16">
                     <h2 className="font-incognito text-4xl mb-4 font-bold tracking-tight">About Me</h2>

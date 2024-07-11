@@ -7,7 +7,7 @@ import profileImage from '../assets/img/LSG_7719-US_DV-2023_Loterie-600x600_px-r
 
 const profile = {
     name: "GABY NJONOU KOUAYA",
-    role: "Apprenti Ingénieur",
+    role: "Apprentice IT Engineer",
     description: "Passionate developer eager for challenges, I'm determined to apply my skills and learn within your team, ready to take on all challenges to contribute to innovative projects."
 };
 
@@ -20,9 +20,9 @@ const socialLinks = [
 
 const Hero: React.FC = () => {
     return (
-        <header className="bg-gradient-bg font-bold text-white">
+        <header  id="home" className="bg-gradient-bg font-bold text-white">
             <NavBar />
-            <section id="home" className="pt-20 min-h-[calc(100vh-5rem)] flex items-center">
+            <section className="pt-20 min-h-[calc(100vh-5rem)] flex items-center">
                 <section className="container mx-auto px-6 py-16 flex flex-col md:flex-row items-center">
                     <div className="md:w-2/3 mb-8 md:mb-0">
                         <div className="container mx-auto px-6 py-16 text-white">
