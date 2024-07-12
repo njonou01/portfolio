@@ -88,7 +88,7 @@ const Experience: React.FC = () => {
                                                 <p>{item.position}</p>
                                                 <time className="text-sm text-zinc-500 mt-2 tracking-widest uppercase">{item.startDate} - <span className="dark:text-primary-color text-tertiary-color">{item.endDate}</span></time>
                                                 {item.link && <a href={item.link} className="text-blue-500 underline mt-2">See more</a>}
-                                                <div >
+                                                <div className='text'>
                                                       <h4 className="font-semibold py-2">Description:</h4>
                                                       <p className="ml-4 tracking-tight dark:text-zinc-400 text-zinc-600 ">{item.description}</p>
                                                 </div>

@@ -27,6 +27,7 @@ const aboutMeText = {
 
 const AboutMe = () => {
     return (
+
         <section id='about' className="pt-10 overflow-hidden dark:bg-gray-800 md:pt-0 sm:pt-16 2xl:pt-16">
             <div className='container text-center mx-auto opacity-100 transform-none'>
                 <div className="mb-16">
@@ -39,27 +40,27 @@ const AboutMe = () => {
                         <img className="absolute bottom-0 -mb-48 -translate-x-1/2 left-1/2" src={blobImage} alt="" />
                         <img className="relative w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl:scale-110" src={profileImage} alt="" />
                     </div>
-                    <div className='flex text-right hyphens-auto flex-col justify-self-end justify-end items-end'>
-                        <h2 className="text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl lg:text-5xl">
+                    <div className='flex justify-between text-center hyphens-auto flex-col justify-self  items-center'>
+                        <h2 className="text-3xl pt-8 font-bold leading-tight text-black dark:text-white sm:text-4xl lg:text-5xl">
                             {aboutMeText.heading}
                         </h2>
-                        <div className="max-w-lg mt-3 justify-end items-end justify-self-end text-xl leading-relaxed text-gray-600 dark:text-gray-300 md:mt-8">
+                        <div className="max-w-lg mt-3 justify-end items-end justify-self-end text-justify text-xl leading-relaxed text-gray-600 dark:text-gray-300 md:mt-8">
                             {aboutMeText.description.map((paragraph, index) => (
                                 <span key={index}>{paragraph}</span>
                             ))}
                         </div>
-                        <p className="mt-4 text-xl text-gray-600 dark:text-gray-300 md:mt-8">
+                        <div className="mt-4 text-xl text-gray-600 dark:text-gray-300 md:mt-8">
                             <span className="relative inline-block">
                                 <span className="absolute inline-block w-full bottom-0.5 h-2 bg-yellow-300 dark:bg-gray-900"></span>
                             </span>
-                            <div className="my-12 flex text-3xl items-center gap-5">
+                            <div className=" flex text-3xl items-center gap-5">
                                 {socialLinks.map((link, index) => (
                                     <a key={index} href={link.url} title={link.title}>
                                         {link.icon}
                                     </a>
                                 ))}
                             </div>
-                        </p>
+                        </div>
                     </div>
                 </div>
             </div>

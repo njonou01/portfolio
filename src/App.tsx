@@ -12,12 +12,15 @@ const App: React.FC = () => {
   return (
     <>
       <Hero />
+      <div className='px-4'>
       <AboutMe />
       <Education />
       <Experience />
       <Projects />
       <Skills />
       <Contact />
+      </div>
+      
       <Footer />
     </>
 

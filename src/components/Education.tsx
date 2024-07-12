@@ -8,17 +8,30 @@ interface EducationItem {
       startDate: string;
       endDate: string;
       courses: string[];
-      img: any
+      img: any,
+      link: string,
+      linkName: string
 }
-
+const handleDownload = (href: string , name: string) => {
+      const link = document.createElement('a');
+      link.href = href;
+      console.log(href)
+      link.target = '_blank';
+      link.download = name;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+};
 const educationData: EducationItem[] = [
       {
             schoolName: "Public School of Health and Digital Engineering (EPISEN)",
             position: 'Créteil, France',
             startDate: 'September 2023',
             endDate: 'Present',
-            courses: ['Statistics and Data Analysis', 'Information System', 'Database Systems' ,'Programming for Communication', 'Networks', 'Software Life Cycle'],
-            img: episen
+            courses: ['Statistics and Data Analysis', 'Information System', 'Database Systems', 'Programming for Communication', 'Networks', 'Software Life Cycle'],
+            img: episen,
+            link: '/assets/doc/sylabus_ing.pdf',
+            linkName: 'sylabus_ing.pdf'
       },
       {
             schoolName: "Public School of Health and Digital Engineering (EPISEN)",
@@ -26,12 +39,15 @@ const educationData: EducationItem[] = [
             startDate: 'September 2019',
             endDate: 'July 2022',
             courses: ['Data Mining', 'Object Oriented Progamming', 'Algorithmic and complexity ', 'Optimisation', 'Machine Learning', 'Software Engineering'],
-            img: uy1
+            img: uy1,
+            link: '/assets/doc/syllabus_licence.pdf',
+            linkName: 'syllabus_licence.pdf'
       }
 ];
 
 const Education: React.FC = () => {
       return (
+
             <section id='education' className="mt-32 container mx-auto">
                   <div className='opacity-100 text-center transform-none'>
                         <div className="mb-16">
@@ -43,10 +59,10 @@ const Education: React.FC = () => {
                               {educationData.map((item, index) => (
                                     <div key={index} className="flex items-start lg:gap-x-6 gap-x-4 max-w-2xl relative before:absolute before:bottom-0 before:top-[5rem] before:left-9 before:w-[1px] before:h-[calc(100%-70px)] dark:before:bg-zinc-800 before:bg-zinc-200">
                                           <button className="grid place-items-center dark:bg-primary-bg bg-secondary-bg border dark:border-zinc-800 border-zinc-200 min-h-[80px] min-w-[80px] p-2 rounded-md overflow-clip relative">
-                                                <img alt={`${item.schoolName} logo`} 
-                                                width="50" height="50"  
-                                                className="object-cover text-transparent duration-300"
-                                                src={item.img}
+                                                <img alt={`${item.schoolName} logo`}
+                                                      width="50" height="50"
+                                                      className="object-cover text-transparent duration-300"
+                                                      src={item.img}
                                                 />
                                           </button>
                                           <div className="flex flex-col items-start">
@@ -63,9 +79,9 @@ const Education: React.FC = () => {
                                                             ))}
                                                       </ul>
                                                       <p>
-                                                            <a href='https://www.linkedin.com/in/njonou65' className="text-primary text-sm font-semibold">
+                                                            <button  className="text-primary text-sm font-semibold" onClick={() => handleDownload(item.link , item.linkName)}>
                                                                   syllabus
-                                                            </a>
+                                                            </button>
                                                       </p>
                                                 </div>
                                           </div>
