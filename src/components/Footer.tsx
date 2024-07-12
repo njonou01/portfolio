@@ -21,11 +21,11 @@ const footerData = {
       icon: <FaGithub className="w-8 h-8" />,
     },
     {
-      href: "https://twitter.com/yourprofile", 
+      href: "https://twitter.com/njonou65",
       icon: <FaTwitter className="w-8 h-8" />,
     },
     {
-      href: "https://gitlab.com/yourprofile", 
+      href: "https://gitlab.com/users/njonou65/projects",
       title: "GitLab",
       icon: <FaGitlab className="w-8 h-8" />,
     },

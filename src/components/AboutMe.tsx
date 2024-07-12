@@ -4,10 +4,11 @@ import blob from "../assets/img/blob (1).png";
 import { FaFacebook, FaGithub, FaGitlab, FaLinkedinIn } from 'react-icons/fa';
 
 const socialLinks = [
-    { url: "http://", icon: <FaFacebook />, title: "Facebook" },
-    { url: "http://", icon: <FaLinkedinIn />, title: "LinkedIn" },
-    { url: "http://", icon: <FaGithub />, title: "GitHub" },
-    { url: "https://", icon: <FaGitlab />, title: "GitLab" }
+    { url: "http://facebook.com/gabi.kuaya", icon: <FaFacebook />, title: "Facebook" },
+    { url: "https://www.linkedin.com/in/njonou65", icon: <FaLinkedinIn />, title: "LinkedIn" },
+    { url: "https://github.com/njonou01", icon: <FaGithub />, title: "GitHub" },
+    { url: "https://gitlab.com/users/njonou65/projects", icon: <FaGitlab />, title: "GitLab" }
+
 ];
 
 const profileImage = profile;
