@@ -2,6 +2,7 @@ import React from 'react';
 import profile from "../assets/img/CFA_AFIA_Bootcamp_DSF5856-removebg-preview.png";
 import blob from "../assets/img/blob (1).png";
 import { FaFacebook, FaGithub, FaGitlab, FaLinkedinIn } from 'react-icons/fa';
+import LayoutSection from './LayoutSection';
 
 const socialLinks = [
     { url: "http://facebook.com/gabi.kuaya", icon: <FaFacebook />, title: "Facebook" },
@@ -28,13 +29,7 @@ const aboutMeText = {
 
 const AboutMe = () => {
     return (
-
-        <section id='about' className="pt-10 overflow-hidden dark:bg-gray-800 md:pt-0 sm:pt-16 2xl:pt-16">
-            <div className='container text-center mx-auto opacity-100 transform-none'>
-                <div className="mb-16">
-                    <h2 className="font-incognito text-4xl mb-4 font-bold tracking-tight">About Me</h2>
-                </div>
-            </div>
+        <LayoutSection title="About Me" id="about">
             <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                 <div className="grid items-center grid-cols-1 md:grid-cols-2">
                     <div className="relative overflow-hidden">
@@ -42,17 +37,17 @@ const AboutMe = () => {
                         <img className="relative w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl:scale-110" src={profileImage} alt="" />
                     </div>
                     <div className='flex justify-between text-center hyphens-auto flex-col justify-self  items-center'>
-                        <h2 className="text-3xl pt-8 font-bold leading-tight text-black dark:text-white sm:text-4xl lg:text-5xl">
+                        <h2 className="text-3xl pt-8 font-bold leading-tight text-black  sm:text-4xl lg:text-5xl">
                             {aboutMeText.heading}
                         </h2>
-                        <div className="max-w-lg mt-3 justify-end items-end justify-self-end text-justify text-xl leading-relaxed text-gray-600 dark:text-gray-300 md:mt-8">
+                        <div className="max-w-lg mt-3 justify-end items-end justify-self-end text-justify text-xl leading-relaxed text-gray-600  md:mt-8">
                             {aboutMeText.description.map((paragraph, index) => (
                                 <span key={index}>{paragraph}</span>
                             ))}
                         </div>
-                        <div className="mt-4 text-xl text-gray-600 dark:text-gray-300 md:mt-8">
+                        <div className="mt-4 text-xl text-gray-600  md:mt-8">
                             <span className="relative inline-block">
-                                <span className="absolute inline-block w-full bottom-0.5 h-2 bg-yellow-300 dark:bg-gray-900"></span>
+                                <span className="absolute inline-block w-full bottom-0.5 h-2 bg-yellow-300 "></span>
                             </span>
                             <div className=" flex text-3xl items-center gap-5">
                                 {socialLinks.map((link, index) => (
@@ -65,7 +60,7 @@ const AboutMe = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </LayoutSection>
     );
 }
 
