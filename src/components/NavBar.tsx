@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { FaBars } from 'react-icons/fa'
+import { FaBars,  FaGithub} from 'react-icons/fa'
+import ThemeToggle from './ThemeToggle'
 const navItems = [
       {
             id: 1,
@@ -38,25 +39,36 @@ const navItems = [
             href: '#contact',
       }
 ]
+
 const NavBar: React.FC = () => {
       const [isOpen, setIsOpen] = useState(false)
-
-
       return (
-
             <>
-                  <nav className="container mx-auto  flex justify-between items-center h-[5rem]">
-                        <button className="text-2xl font-bold text-white">Gaby NJONOU</button>
+                  <nav className="container mx-auto  flex justify-between items-center h-[5rem] ">
+                        <button className="text-2xl font-black text-gradient">NKG</button>
                         <div className="hidden md:flex space-x-6  justify-between items-center">
                               {navItems.map((item, index) => (
                                     <a key={index} href={item.href} className="block px-4 text-sm ">{item.value}</a>
                               ))}
+
+                              <div className='flex items-center gap-2 border-x pr-4 border-gray-300 '>
+                                    <a href="https://github.com/njonou01"
+                                          className="border-r border-gray-300 px-4"
+                                          title="GitHub" >
+                                          <FaGithub size={24} className='text-black' />
+                                    </a>
+                                    <span>
+                                          <ThemeToggle />
+                                    </span>
+                              </div>
+
                         </div>
+
                         <div className="flex lg:hidden px-2">
                               <button type="button" onClick={() => setIsOpen(true)}
                                     className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
                                     <span className="sr-only">Open main menu</span>
-                                    <FaBars size={24} className='text-white' />
+                                    <FaBars size={24} className='text-primary' />
                               </button>
                         </div>
                   </nav>
@@ -82,7 +94,7 @@ const NavBar: React.FC = () => {
                                                 {
                                                       navItems.map((item, index) => (
                                                             <a key={index} href={item.href} onClick={() => setIsOpen(false)}
-                                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{item.value}</a>
+                                                                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{item.value}</a>
                                                       ))
                                                 }
                                           </div>

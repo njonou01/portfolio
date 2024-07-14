@@ -3,6 +3,7 @@
 @tailwind utilities;
 body {
   margin: 0;
+  @apply bg-zinc-50;
 }
 .text-gradient {
   background-clip: text;
