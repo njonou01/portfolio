@@ -80,9 +80,9 @@ const Hero: React.FC = () => {
                             <div className="mb-8 md:mb-0 md:w-1/2 w-full">
                                 <div className="flex flex-col w-full justify-center md:justify-start md:items-start items-center   gap-1 pt-16 pb-4 ">
                                     <h1 className="text-3xl md:text-6xl font-bold mb-4">Hi, I'm {profile.firstName} {profile.name}</h1>
-                                    <div className="flex flex-col gap-2 pb-2 md:flex-row items-center">
+                                    <div className="flex flex-col gap-12 pb-4 md:flex-row items-center">
                                         <h2 className="text-3xl md:text-5xl font-bold ">An </h2>
-                                        <h2 className="text-2xl h-5 md:h-full md:text-5xl font-bold">
+                                        <h2 className="text-2xl h-5 md:h-full md:text-5xl  font-bold">
                                             <ProgressiveText text={profile.role} interval={200} />
                                         </h2>
                                     </div>

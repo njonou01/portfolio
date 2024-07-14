@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FaBars,  FaGithub} from 'react-icons/fa'
 import ThemeToggle from './ThemeToggle'
+import ThemeLanguage from './ThemeLanguage'
 const navItems = [
       {
             id: 1,
@@ -51,7 +52,7 @@ const NavBar: React.FC = () => {
                                     <a key={index} href={item.href} className="block px-4 text-sm ">{item.value}</a>
                               ))}
 
-                              <div className='flex items-center gap-2 border-x pr-4 border-gray-300 '>
+                              <div className='flex items-center gap-2 '>
                                     <a href="https://github.com/njonou01"
                                           className="border-r border-gray-300 px-4"
                                           title="GitHub" >
@@ -59,6 +60,9 @@ const NavBar: React.FC = () => {
                                     </a>
                                     <span>
                                           <ThemeToggle />
+                                    </span>
+                                    <span className='border-l border-gray-300 px-4 flex items-center justify-center '>
+                                          <ThemeLanguage />
                                     </span>
                               </div>
 
