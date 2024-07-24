@@ -14,8 +14,9 @@ const App: React.FC = () => {
     <>
       <NavBar />
 
-      <Hero />
       <div className='px-4'>
+      <Hero />
+
       <AboutMe />
       <Education />
       <Experience />

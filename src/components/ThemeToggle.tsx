@@ -24,7 +24,8 @@ const ThemeToggle: React.FC = () => {
     }  }, [isDarkmode]);
 
   const toggleTheme = () => {
-    setIsDarkmode((prevMode) => !prevMode);
+    // setIsDarkmode((prevMode) => !prevMode);
+    alert('Dark mode is not supported yet')
   };
 
   
