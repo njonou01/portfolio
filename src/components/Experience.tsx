@@ -6,7 +6,7 @@ const Experience: React.FC = () => {
             <LayoutSection title="Work Experience" id="experience">
                   <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-12">
                         {experienceData.map((item, index) => (
-                              <div key={index} className="flex items-start lg:gap-x-6 gap-x-4 max-w-2xl relative before:absolute before:bottom-0 before:top-[5rem] before:left-9 before:w-[1px] before:h-[calc(100%-70px)]  before:bg-zinc-200">
+                              <div key={index} className="flex items-start lg:gap-x-6 gap-x-4 mb-3 max-w-2xl relative before:absolute before:bottom-0 before:top-[5rem] before:left-9 before:w-[1px] before:h-[calc(100%-70px)]  before:bg-zinc-200">
                                     <button className="grid place-items-center  bg-secondary-bg border  border-zinc-200 min-h-[80px] min-w-[80px] p-2 rounded-md overflow-clip relative">
                                           <img src={item.image} alt={`${item.companyName} logo`} width="50" height="50" decoding="async" data-nimg="1" className="object-cover text-transparent duration-300" />
                                     </button>
