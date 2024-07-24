@@ -8,7 +8,7 @@ const Projects: React.FC = () => {
 
 
   return (
-    <LayoutSection title="Projets Personnels et Académiques" id="projects">
+    <LayoutSection title="Personal and Academic Projects" id="projects">
       <div className='opacity-100 transform-none'>
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-12 gap-y-10">
           {projectsData.map((project, index) => (
@@ -19,7 +19,7 @@ const Projects: React.FC = () => {
               <div className="flex flex-col items-start">
                 <h3 className="text-xl font-semibold">{project.title}</h3>
                 <time className="text-sm text-zinc-500 mt-2 tracking-widest uppercase">{project.date}</time>
-                {project.link && <a href={project.link} className="text-blue-500 underline mt-2">Voir plus</a>}
+                {project.link && <a href={project.link} className="text-blue-500 underline mt-2">See more</a>}
                 <div>
                   <h4 className="font-semibold py-2">Description:</h4>
                   <p className="ml-4 tracking-tight  text-zinc-600 ">{project.description}</p>
