@@ -4,7 +4,7 @@ import LayoutSection from './LayoutSection';
 const Experience: React.FC = () => {
       return (
             <LayoutSection title="Work Experience" id="experience">
-                  <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-12">
+                  <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-12 gap-y-4">
                         {experienceData.map((item, index) => (
                               <div key={index} className="flex items-start lg:gap-x-6 gap-x-4 mb-3 max-w-2xl relative before:absolute before:bottom-0 before:top-[5rem] before:left-9 before:w-[1px] before:h-[calc(100%-70px)]  before:bg-zinc-200">
                                     <button className="grid place-items-center  bg-secondary-bg border  border-zinc-200 min-h-[80px] min-w-[80px] p-2 rounded-md overflow-clip relative">
