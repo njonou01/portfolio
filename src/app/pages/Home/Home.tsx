@@ -6,6 +6,7 @@ import MobileNav from "../../components/MobileNav/MobileNav";
 import Footer from "../../components/Footer/Footer";
 import HeroSection from "./components/HeroSection/HeroSection";
 import profilePath from "../../../assets/images/CFA_AFIA_Bootcamp_DSF5850__1_-removebg-preview.png";
+import ExperienceSection from "./components/ExperienceSection/ExperienceSection";
 const Home: React.FC = () => {
   const [isScrolled] = useState(false);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -19,9 +20,11 @@ const Home: React.FC = () => {
       />
       <HeroSection
         imgRatio={1.3}
-        roles={["FUTUR INGÉNIEUR DATA"]}
+        roles={["ELEVE INGÉNIEUR ", "DATA SCIENTIST", "ML ENGINEER"]}
         profilePath={profilePath}
       />
+      <ExperienceSection />
+
       <MobileNav isOpen={isMobileNavOpen} setIsOpen={setIsMobileNavOpen} />
       <Footer />
     </>
