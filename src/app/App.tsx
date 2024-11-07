@@ -1,7 +1,8 @@
 import React from "react";
+import Home from "./pages/Home/Home";
 
 const App: React.FC = () => {
-  return <div className="bg-green-500 text-white">App</div>;
+  return <Home />;
 };
 
 export default App;
