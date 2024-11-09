@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 const heroData = {
   introduction: {
     greeting: "👋 Bonjour, je suis",
-    name: "Gaby NJONOU KOUAYA",
+    name: "Gaby NJONOU ",
     description:
       "Passionné par #l'IA et la #DataScience, je transforme les #données en solutions #innovantes.",
   },
@@ -143,7 +143,6 @@ const HeroSection: React.FC<HeroProps> = ({ imgRatio, roles, profilePath }) => {
                 </p>
               </div>
 
-              {/* Status Cards */}
               <div className="flex flex-col md:flex-row gap-4 justify-center lg:justify-start">
                 {heroData.annunces.map((status, index) => (
                   <div
@@ -176,7 +175,6 @@ const HeroSection: React.FC<HeroProps> = ({ imgRatio, roles, profilePath }) => {
                 ))}
               </div>
 
-              {/* Social Media Links */}
               <div className="flex gap-4 justify-center lg:justify-start">
                 {heroData.socialLinks.map((social, index) => (
                   <a
@@ -215,7 +213,6 @@ const HeroSection: React.FC<HeroProps> = ({ imgRatio, roles, profilePath }) => {
               </div>
             </div>
 
-            {/* Image and Badges Section */}
             <div className="relative order-1 lg:order-2 flex justify-center items-center">
               <div className="relative">
                 <img

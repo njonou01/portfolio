@@ -46,7 +46,7 @@ const ExperienceSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20">
+    <section className="py-20 ">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-20">
           <span className="gradient-text">Parcours</span> Professionnel
