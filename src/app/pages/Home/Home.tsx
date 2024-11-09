@@ -7,6 +7,7 @@ import Footer from "../../components/Footer/Footer";
 import HeroSection from "./components/HeroSection/HeroSection";
 import profilePath from "../../../assets/images/CFA_AFIA_Bootcamp_DSF5856__1_-removebg-preview.png";
 import ExperienceSection from "./components/ExperienceSection/ExperienceSection";
+import EducationSection from "./components/EducationSection";
 const Home: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -28,6 +29,7 @@ const Home: React.FC = () => {
         imgRatio={1.3}
         profilePath={profilePath}
       />
+      <EducationSection />
       <ExperienceSection />
 
       <MobileNav isOpen={isMobileNavOpen} setIsOpen={setIsMobileNavOpen} />
