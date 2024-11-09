@@ -9,6 +9,7 @@ import profilePath from "../../../assets/images/CFA_AFIA_Bootcamp_DSF5856__1_-re
 import ExperienceSection from "./components/ExperienceSection/ExperienceSection";
 import EducationSection from "./components/EducationSection";
 import ProjectsSection from "./components/ProjectsSection";
+import SkillsSection from "./components/SkillsSection";
 const Home: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -30,6 +31,7 @@ const Home: React.FC = () => {
         imgRatio={1.3}
         profilePath={profilePath}
       />
+      <SkillsSection />
       <ProjectsSection />
       <EducationSection />
       <ExperienceSection />
