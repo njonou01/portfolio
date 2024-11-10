@@ -183,7 +183,6 @@ const ContactSection: React.FC = () => {
                         space-y-6"
             >
               <div className="grid md:grid-cols-2 gap-6">
-                {/* Nom */}
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-900 dark:text-white">
                     Nom complet
@@ -210,7 +209,6 @@ const ContactSection: React.FC = () => {
                   />
                 </div>
 
-                {/* Email */}
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-900 dark:text-white">
                     Email
@@ -238,7 +236,6 @@ const ContactSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Sujet */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-900 dark:text-white">
                   Sujet
@@ -265,7 +262,6 @@ const ContactSection: React.FC = () => {
                 />
               </div>
 
-              {/* Message */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-900 dark:text-white">
                   Message
@@ -292,7 +288,6 @@ const ContactSection: React.FC = () => {
                 />
               </div>
 
-              {/* Bouton Submit */}
               <button
                 type="submit"
                 disabled={isLoading}

@@ -225,6 +225,7 @@ const LoadingScreen: React.FC<LoadingPageProps> = ({
             <img
               src={icon.logo}
               alt=""
+              loading="lazy"
               className="w-12 h-12 object-contain dark:filter dark:brightness-[0.3]"
               draggable="false"
             />

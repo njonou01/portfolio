@@ -42,14 +42,14 @@ const AboutSection: React.FC = () => {
     personal: {
       title: "Personnel",
       subtitle: "Mon Histoire",
-      description: `Passionné par l'innovation et la technologie depuis mon plus jeune âge,
+      description: `Passionné par les mathématiques et la technologie depuis mon plus jeune âge,
                    j'ai toujours été fasciné par la façon dont nous pouvons utiliser ces outils
                    pour créer un impact positif. Mon parcours m'a permis de développer une
                    approche unique, combinant créativité et rigueur analytique.`,
       highlights: [
         {
           title: "Début de l'aventure",
-          text: "Découverte de la programmation et de l'IA",
+          text: "Découverte de la programmation static ",
           icon: "🚀",
         },
         {
@@ -136,10 +136,11 @@ const AboutSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="bg-gradient-to-r from-indigo-600 to-indigo-400 bg-clip-text text-transparent">
-                À propos de Moi
-              </span>
+                À propos
+              </span>{" "}
+              <span className="text-gray-900 dark:text-white">de Moi</span>
             </h2>
 
             <div className="flex justify-center mt-8">

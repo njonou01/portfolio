@@ -1,92 +1,49 @@
-import { HeroProps } from "@/types/props.type";
 import React, { useEffect, useRef, useState } from "react";
+import heroData from "../../../../data/HeroData";
+import { HeroProps } from "@/types/props.type";
 
-const heroData = {
-  introduction: {
-    greeting: "👋 Bonjour, je suis",
-    name: "Gaby NJONOU ",
-    description:
-      "Passionné par #l'IA et la #DataScience, je transforme les #données en solutions #innovantes.",
-  },
-
-  annunces: [
-    {
-      title: "Alternance",
-      details: "Disponible immédiatement",
-      emoji: "🎓",
-      gradient: "from-indigo-500 to-indigo-700",
-    },
-    {
-      title: "Stage",
-      details: "4 mois minimum dès Mai 2025",
-      emoji: "💼",
-      gradient: "from-blue-500 to-blue-700",
-    },
-  ],
-
-  socialLinks: [
-    {
-      icon: "fab fa-linkedin",
-      url: "#",
-      label: "LinkedIn",
-      color: "hover:bg-blue-600",
-    },
-    {
-      icon: "fab fa-github",
-      url: "#",
-      label: "GitHub",
-      color: "hover:bg-gray-800",
-    },
-    {
-      icon: "fab fa-twitter",
-      url: "#",
-      label: "Twitter",
-      color: "hover:bg-blue-400",
-    },
-    {
-      icon: "fab fa-instagram",
-      url: "#",
-      label: "Instagram",
-      color: "hover:bg-pink-600",
-    },
-  ],
-
-  badges: [
-    {
-      icon: "fab fa-python",
-      title: "Python",
-      subtitle: "Data Science",
-      gradient: "from-blue-500 to-blue-700",
-      position: "-right-6 top-20",
-    },
-    {
-      icon: "fab fa-aws",
-      title: "AWS",
-      subtitle: "Cloud",
-      gradient: "from-orange-500 to-orange-700",
-      position: "right-0 bottom-32",
-    },
-    {
-      icon: "fas fa-database",
-      title: "MongoDB",
-      subtitle: "NoSQL",
-      gradient: "from-green-500 to-green-700",
-      position: "-left-6 top-32",
-    },
-    {
-      icon: "fas fa-brain",
-      title: "Machine",
-      subtitle: "Learning",
-      gradient: "from-purple-500 to-purple-700",
-      position: "left-0 bottom-20",
-    },
-  ],
+type Social = {
+  icon: string;
+  url: string;
+  label: string;
+  color: string;
 };
-
-const HeroSection: React.FC<HeroProps> = ({ imgRatio, roles, profilePath }) => {
-  const [currentRole, setCurrentRole] = useState(0);
+type SocialNetworkProps = {
+  social: Social;
+  index: number;
+};
+type Status = {
+  emoji: string;
+  title: string;
+  details: string;
+  gradient: string;
+};
+type AnnounceProps = {
+  status: Status;
+  index: number;
+};
+type BadgeType = {
+  icon: string;
+  title: string;
+  subtitle: string;
+  gradient: string;
+  position: string;
+};
+type BadgeProps = {
+  badge: BadgeType;
+  index: number;
+};
+type ImageCardProps = {
+  imgRatio: number;
+  profilePath: string;
+  className?: string;
+};
+const ImageCard: React.FC<ImageCardProps> = ({
+  imgRatio,
+  profilePath,
+  className,
+}) => {
   const imageRef = useRef<HTMLImageElement | null>(null);
-
   useEffect(() => {
     if (imageRef.current) {
       const originalWidth = imageRef.current.naturalWidth;
@@ -95,12 +52,143 @@ const HeroSection: React.FC<HeroProps> = ({ imgRatio, roles, profilePath }) => {
       imageRef.current.style.width = `${originalWidth * imgRatio}px`;
       imageRef.current.style.height = `${originalHeight * imgRatio}px`;
     }
+  }, [imgRatio]);
 
-    const interval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % roles.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [imgRatio, roles.length]);
+  return (
+    <div className="relative">
+      <div className={`absolute ${className}`} />
+      <img ref={imageRef} src={profilePath} alt={heroData.introduction.name} />
+
+      {heroData.badges.map((badge, index) => (
+        <Badge key={index} badge={badge} index={index} />
+      ))}
+    </div>
+  );
+};
+const Badge: React.FC<BadgeProps> = ({ badge, index }) => {
+  return (
+    <div
+      key={index}
+      className={`absolute ${badge.position}
+               bg-white dark:bg-gray-800
+               shadow-lg dark:shadow-gray-900/10
+               rounded-2xl p-3 transform hover:scale-105
+               hover:shadow-xl dark:hover:shadow-gray-900/20
+               transition-all duration-300 cursor-pointer
+               border border-gray-200 dark:border-gray-700`}
+    >
+      <div className="flex items-center gap-3">
+        <div
+          className={`w-10 h-10 bg-gradient-to-br ${badge.gradient} 
+                  rounded-xl flex items-center justify-center
+                  shadow-lg`}
+        >
+          <i className={`${badge.icon} text-white text-lg`}></i>
+        </div>
+        <div>
+          <p className="font-semibold text-gray-900 dark:text-white text-sm">
+            {badge.title}
+          </p>
+          <p className="text-gray-600 dark:text-gray-400 text-xs">
+            {badge.subtitle}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const SocialNetwork: React.FC<SocialNetworkProps> = ({ social, index }) => {
+  return (
+    <a
+      key={index}
+      href={social.url}
+      aria-label={social.label}
+      className={`w-12 h-12 flex items-center justify-center rounded-xl
+               bg-white dark:bg-gray-800
+               border border-gray-200 dark:border-gray-700
+               shadow-md dark:shadow-gray-900/10
+               transform hover:scale-110 hover:-translate-y-1
+               transition-all duration-300
+               ${social.color} hover:text-white
+               hover:border-transparent hover:shadow-lg`}
+    >
+      <i className={`${social.icon} text-xl`}></i>
+    </a>
+  );
+};
+
+const Anounce: React.FC<AnnounceProps> = ({ status, index }) => {
+  return (
+    <div
+      key={index}
+      className="flex-1 bg-white dark:bg-gray-800 backdrop-blur-sm
+              border border-gray-200 dark:border-gray-700
+              shadow-lg dark:shadow-gray-900/10
+              rounded-2xl px-6 py-4 
+              hover:transform hover:scale-[1.02]
+              hover:shadow-xl dark:hover:shadow-gray-900/20
+              transition-all duration-300"
+    >
+      <div className="flex items-center gap-3">
+        <div
+          className={`w-12 h-12 bg-gradient-to-br ${status.gradient} rounded-xl 
+                     flex items-center justify-center transform transition-transform
+                     duration-300 hover:rotate-12 shadow-lg`}
+        >
+          <span className="text-2xl text-white">{status.emoji}</span>
+        </div>
+        <div>
+          <p className="font-semibold text-gray-900 dark:text-white">
+            {status.title}
+          </p>
+          <p className="text-indigo-600 dark:text-indigo-400">
+            {status.details}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+const HeroSection: React.FC<HeroProps> = ({ imgRatio, roles, profilePath }) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const typingSpeed = 150;
+    const deletingSpeed = 75;
+    const pauseTime = 1500;
+
+    const handleTyping = () => {
+      const currentRole = roles[currentRoleIndex];
+
+      if (!isDeleting) {
+        if (displayedText !== currentRole) {
+          setDisplayedText(currentRole.substring(0, displayedText.length + 1));
+        } else {
+          // petite pause avant de supprimer
+          setTimeout(() => setIsDeleting(true), pauseTime);
+          return;
+        }
+      } else {
+        // supprimer le dernier caractère
+        if (displayedText === "") {
+          setIsDeleting(false);
+          setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+          return;
+        }
+        setDisplayedText(currentRole.substring(0, displayedText.length - 1));
+      }
+    };
+
+    const timeout = setTimeout(
+      handleTyping,
+      isDeleting ? deletingSpeed : typingSpeed
+    );
+
+    return () => clearTimeout(timeout);
+  }, [displayedText, currentRoleIndex, isDeleting, roles]);
 
   const formatDescription = (text: string) => {
     return text.split(/(\s+)/).map((word, index) => {
@@ -134,7 +222,8 @@ const HeroSection: React.FC<HeroProps> = ({ imgRatio, roles, profilePath }) => {
               </h1>
               <div className="h-12 mb-6">
                 <span className="text-2xl md:text-3xl text-gray-800 dark:text-gray-200 font-semibold">
-                  {roles[currentRole]}
+                  {displayedText}
+                  <span className="animate-pulse">|</span>
                 </span>
               </div>
               <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
@@ -144,56 +233,13 @@ const HeroSection: React.FC<HeroProps> = ({ imgRatio, roles, profilePath }) => {
 
             <div className="flex flex-col md:flex-row gap-4 justify-center lg:justify-start">
               {heroData.annunces.map((status, index) => (
-                <div
-                  key={index}
-                  className="flex-1 bg-white dark:bg-gray-800 backdrop-blur-sm
-                            border border-gray-200 dark:border-gray-700
-                            shadow-lg dark:shadow-gray-900/10
-                            rounded-2xl px-6 py-4 
-                            hover:transform hover:scale-[1.02]
-                            hover:shadow-xl dark:hover:shadow-gray-900/20
-                            transition-all duration-300"
-                >
-                  <div className="flex items-center gap-3">
-                    <div
-                      className={`w-12 h-12 bg-gradient-to-br ${status.gradient} rounded-xl 
-                                   flex items-center justify-center transform transition-transform
-                                   duration-300 hover:rotate-12 shadow-lg`}
-                    >
-                      <span className="text-2xl text-white">
-                        {status.emoji}
-                      </span>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">
-                        {status.title}
-                      </p>
-                      <p className="text-indigo-600 dark:text-indigo-400">
-                        {status.details}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <Anounce key={index} status={status} index={index} />
               ))}
             </div>
 
             <div className="flex gap-4 justify-center lg:justify-start">
               {heroData.socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.url}
-                  aria-label={social.label}
-                  className={`w-12 h-12 flex items-center justify-center rounded-xl
-                             bg-white dark:bg-gray-800
-                             border border-gray-200 dark:border-gray-700
-                             shadow-md dark:shadow-gray-900/10
-                             transform hover:scale-110 hover:-translate-y-1
-                             transition-all duration-300
-                             ${social.color} hover:text-white
-                             hover:border-transparent hover:shadow-lg`}
-                >
-                  <i className={`${social.icon} text-xl`}></i>
-                </a>
+                <SocialNetwork key={index} social={social} index={index} />
               ))}
             </div>
 
@@ -225,45 +271,11 @@ const HeroSection: React.FC<HeroProps> = ({ imgRatio, roles, profilePath }) => {
           </div>
 
           <div className="relative order-1 lg:order-2 flex justify-center items-center">
-            <div className="relative">
-              <div className="absolute inset-0 dark:bg-gradient-to-br  dark:from-indigo-500/5 dark:to-blue-500/5 rounded-2xl" />
-              <img
-                ref={imageRef}
-                src={profilePath}
-                alt={heroData.introduction.name}
-              />
-
-              {heroData.badges.map((badge, index) => (
-                <div
-                  key={index}
-                  className={`absolute ${badge.position}
-                             bg-white dark:bg-gray-800
-                             shadow-lg dark:shadow-gray-900/10
-                             rounded-2xl p-3 transform hover:scale-105
-                             hover:shadow-xl dark:hover:shadow-gray-900/20
-                             transition-all duration-300 cursor-pointer
-                             border border-gray-200 dark:border-gray-700`}
-                >
-                  <div className="flex items-center gap-3">
-                    <div
-                      className={`w-10 h-10 bg-gradient-to-br ${badge.gradient} 
-                                rounded-xl flex items-center justify-center
-                                shadow-lg`}
-                    >
-                      <i className={`${badge.icon} text-white text-lg`}></i>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900 dark:text-white text-sm">
-                        {badge.title}
-                      </p>
-                      <p className="text-gray-600 dark:text-gray-400 text-xs">
-                        {badge.subtitle}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <ImageCard
+              imgRatio={imgRatio}
+              profilePath={profilePath}
+              className="inset-0 dark:bg-gradient-to-br dark:from-indigo-500/5 dark:to-blue-500/5 rounded-2xl"
+            />
           </div>
         </div>
       </div>
