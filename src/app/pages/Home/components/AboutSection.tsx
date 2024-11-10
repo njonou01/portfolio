@@ -11,9 +11,9 @@ const AboutSection: React.FC = () => {
       text: "Créatif & Innovant",
       icon: "💡",
       position: {
-        top: "15%",
-        right: "1rem",
-        rotate: "2deg",
+        top: "5%",
+        right: "5%",
+        rotate: "15deg",
       },
     },
     {
