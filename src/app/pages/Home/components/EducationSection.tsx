@@ -95,11 +95,14 @@ const EducationSection: React.FC<EducationSectionProps> = ({ className }) => {
       className={`py-20 bg-gray-50 dark:bg-gray-900 ${className}`}
       ref={sectionRef}
     >
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-4">
-          <span className="gradient-text">Formation</span> Académique
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+          <span className="bg-gradient-to-r from-indigo-600 to-indigo-400 bg-clip-text text-transparent">
+            Formation
+          </span>{" "}
+          <span className="text-gray-900 dark:text-white">Académique</span>
         </h2>
-        <p className="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-16">
+        <p className="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-16 leading-relaxed">
           Un parcours d'excellence en ingénierie numérique et data science
         </p>
 
@@ -107,8 +110,12 @@ const EducationSection: React.FC<EducationSectionProps> = ({ className }) => {
           {education.map((edu) => (
             <div
               key={edu.id}
-              className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg 
-                       hover:shadow-xl transition-all duration-300"
+              className="relative bg-white dark:bg-gray-800 rounded-2xl 
+                       border border-gray-100 dark:border-gray-700
+                       shadow-lg dark:shadow-gray-900/10
+                       hover:shadow-xl dark:hover:shadow-gray-900/20 
+                       hover:border-gray-200 dark:hover:border-gray-600
+                       transition-all duration-300"
             >
               <div
                 onClick={() =>
@@ -117,22 +124,24 @@ const EducationSection: React.FC<EducationSectionProps> = ({ className }) => {
                 className="p-6 cursor-pointer"
               >
                 <div className="flex items-start justify-between">
-                  <div className="space-y-1">
+                  <div className="space-y-2">
                     <div className="flex items-center gap-3">
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
                         {edu.title}
                       </h3>
                       <span
-                        className={`px-3 py-1 rounded-full text-sm font-medium ${
-                          edu.status === "En cours"
-                            ? "bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400"
-                            : "bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400"
-                        }`}
+                        className={`px-3 py-1.5 rounded-full text-sm font-medium
+                          border backdrop-blur-sm
+                          ${
+                            edu.status === "En cours"
+                              ? "bg-indigo-100/90 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 border-indigo-200 dark:border-indigo-700"
+                              : "bg-green-100/90 dark:bg-green-900/50 text-green-600 dark:text-green-300 border-green-200 dark:border-green-700"
+                          }`}
                       >
                         {edu.status}
                       </span>
                     </div>
-                    <p className="text-lg text-primary-600 dark:text-primary-400">
+                    <p className="text-lg text-indigo-600 dark:text-indigo-400 font-medium">
                       {edu.school}
                     </p>
                     <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
@@ -151,9 +160,11 @@ const EducationSection: React.FC<EducationSectionProps> = ({ className }) => {
                     aria-label={
                       selectedId === edu.id ? "Réduire" : "Développer"
                     }
-                    className={`h-8 w-8 rounded-full flex items-center justify-center
-                              transition-transform duration-300 text-gray-400 
-                              hover:bg-gray-100 dark:hover:bg-gray-700/50
+                    className={`h-10 w-10 rounded-full flex items-center justify-center
+                              transition-all duration-300
+                              text-gray-500 dark:text-gray-400
+                              hover:bg-gray-100 dark:hover:bg-gray-700
+                              hover:text-gray-700 dark:hover:text-gray-200
                               ${selectedId === edu.id ? "rotate-180" : ""}`}
                   >
                     <i className="fas fa-chevron-down" />
@@ -164,8 +175,12 @@ const EducationSection: React.FC<EducationSectionProps> = ({ className }) => {
                   {edu.specializations.map((spec, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 
-                               text-gray-700 dark:text-gray-300 rounded-lg"
+                      className="px-3 py-1.5 text-sm font-medium
+                               text-gray-700 dark:text-gray-300
+                               bg-gray-100 dark:bg-gray-700/50
+                               border border-gray-200 dark:border-gray-600
+                               hover:border-indigo-300 dark:hover:border-indigo-700
+                               rounded-lg transition-colors duration-200"
                     >
                       {spec}
                     </span>
@@ -174,7 +189,7 @@ const EducationSection: React.FC<EducationSectionProps> = ({ className }) => {
               </div>
 
               <div
-                className={`transition-all duration-300 ease-in-out overflow-hidden
+                className={`transition-all duration-500 ease-in-out overflow-hidden
                   ${
                     selectedId === edu.id
                       ? "max-h-[500px] opacity-100"
@@ -183,7 +198,7 @@ const EducationSection: React.FC<EducationSectionProps> = ({ className }) => {
               >
                 <div className="px-6 pb-6 space-y-6">
                   <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
-                    <p className="text-gray-600 dark:text-gray-400 mb-6">
+                    <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                       {edu.description}
                     </p>
 
@@ -195,8 +210,12 @@ const EducationSection: React.FC<EducationSectionProps> = ({ className }) => {
                         {edu.skills.map((skill, idx) => (
                           <span
                             key={idx}
-                            className="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 
-                                     text-primary-600 dark:text-primary-400 rounded-lg text-sm"
+                            className="px-3 py-1.5 text-sm font-medium
+                                     bg-indigo-50 dark:bg-indigo-900/30 
+                                     text-indigo-600 dark:text-indigo-300
+                                     border border-indigo-100 dark:border-indigo-800
+                                     hover:border-indigo-300 dark:hover:border-indigo-700
+                                     rounded-lg transition-colors duration-200"
                           >
                             {skill}
                           </span>
@@ -206,8 +225,12 @@ const EducationSection: React.FC<EducationSectionProps> = ({ className }) => {
 
                     <a
                       href={edu.syllabusUrl}
-                      className="inline-flex items-center justify-center w-full mt-6 px-6 py-3 
-                               bg-primary-600 text-white rounded-xl hover:bg-primary-700 
+                      className="inline-flex items-center justify-center w-full mt-6 px-6 py-3.5
+                               bg-indigo-600 hover:bg-indigo-700
+                               text-white font-medium rounded-xl 
+                               shadow-lg shadow-indigo-600/20
+                               hover:shadow-xl hover:shadow-indigo-600/30
+                               hover:transform hover:-translate-y-0.5
                                transition-all duration-300 group"
                     >
                       <i

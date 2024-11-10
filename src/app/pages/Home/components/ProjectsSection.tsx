@@ -102,29 +102,37 @@ const ProjectsSection: React.FC = () => {
 
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">
-            <span className="gradient-text">Projets</span> Remarquables
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-indigo-600 to-indigo-400 bg-clip-text text-transparent">
+              Projets
+            </span>{" "}
+            <span className="text-gray-900 dark:text-white">Remarquables</span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Un aperçu de mes réalisations en machine learning, data engineering
             et développement web
           </p>
         </div>
 
         <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-white dark:bg-gray-800 rounded-xl p-2 shadow-lg">
+          <div
+            className="inline-flex bg-white dark:bg-gray-800 rounded-xl p-2 
+                         shadow-lg dark:shadow-gray-900/10 
+                         border border-gray-100 dark:border-gray-700"
+          >
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setFilter(cat.id)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all 
-                  duration-300 flex items-center gap-2 hover:-translate-y-0.5
+                className={`px-4 py-2 rounded-lg text-sm font-medium 
+                  transition-all duration-300 flex items-center gap-2 
+                  hover:-translate-y-0.5 hover:shadow-md
                   ${
                     filter === cat.id
-                      ? "bg-primary-500 text-white shadow-lg"
-                      : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/20"
+                      : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50"
                   }`}
               >
                 <span className="text-lg">{cat.icon}</span>
@@ -138,8 +146,11 @@ const ProjectsSection: React.FC = () => {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg 
-                overflow-hidden transition-all duration-300 hover:shadow-xl
+              className="group bg-white dark:bg-gray-800 rounded-2xl 
+                shadow-lg dark:shadow-gray-900/10
+                border border-gray-100 dark:border-gray-700
+                overflow-hidden transition-all duration-300 
+                hover:shadow-xl dark:hover:shadow-gray-900/20
                 hover:-translate-y-1"
             >
               <div className="relative overflow-hidden">
@@ -148,28 +159,34 @@ const ProjectsSection: React.FC = () => {
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform 
-                      duration-300 group-hover:scale-105"
+                      duration-500 group-hover:scale-110"
                   />
                   <div
-                    className="absolute inset-0 bg-gradient-to-t from-black/60 
-                    to-transparent opacity-0 group-hover:opacity-100 transition-opacity 
-                    duration-300"
+                    className="absolute inset-0 bg-gradient-to-t 
+                      from-gray-900/80 via-gray-900/50 to-transparent 
+                      opacity-0 group-hover:opacity-100 transition-opacity 
+                      duration-300"
                   >
                     <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <div className="flex justify-between items-center text-sm">
-                        <span>{project.year}</span>
-                        <span>{project.role}</span>
+                      <div className="flex justify-between items-center text-sm font-medium">
+                        <span className="bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm">
+                          {project.year}
+                        </span>
+                        <span className="bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm">
+                          {project.role}
+                        </span>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="absolute top-4 right-4">
                   <span
-                    className={`px-3 py-1 rounded-full text-sm font-medium
+                    className={`px-3 py-1.5 rounded-full text-sm font-medium
+                      backdrop-blur-sm border
                       ${
                         project.status === "En cours"
-                          ? "bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400"
-                          : "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400"
+                          ? "bg-indigo-100/90 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 border-indigo-200 dark:border-indigo-700"
+                          : "bg-green-100/90 dark:bg-green-900/50 text-green-600 dark:text-green-300 border-green-200 dark:border-green-700"
                       }`}
                   >
                     {project.status}
@@ -181,7 +198,7 @@ const ProjectsSection: React.FC = () => {
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
                   {project.shortDescription}
                 </p>
 
@@ -189,9 +206,12 @@ const ProjectsSection: React.FC = () => {
                   {project.technologies.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 
-                        text-gray-700 dark:text-gray-300 rounded-lg transition-all 
-                        duration-300 hover:bg-primary-50 dark:hover:bg-primary-900/30"
+                      className="px-3 py-1.5 text-sm font-medium
+                        text-gray-700 dark:text-gray-300
+                        bg-gray-100 dark:bg-gray-700/50
+                        border border-gray-200 dark:border-gray-600
+                        hover:border-indigo-300 dark:hover:border-indigo-700
+                        rounded-lg transition-all duration-200"
                     >
                       {tech}
                     </span>
@@ -206,9 +226,9 @@ const ProjectsSection: React.FC = () => {
                           activeProject === project.id ? null : project.id
                         )
                       }
-                      className="text-primary-600 dark:text-primary-400 font-medium 
+                      className="text-indigo-600 dark:text-indigo-400 font-medium 
                         flex items-center gap-2 transition-all duration-300 
-                        hover:gap-3"
+                        hover:gap-3 hover:text-indigo-700 dark:hover:text-indigo-300"
                     >
                       En savoir plus
                       <i
@@ -223,8 +243,9 @@ const ProjectsSection: React.FC = () => {
                           href={project.githubLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-500 hover:text-gray-700 dark:text-gray-400 
-                            dark:hover:text-gray-200 transition-colors duration-300"
+                          className="text-gray-600 dark:text-gray-400 
+                            hover:text-gray-900 dark:hover:text-white
+                            transition-all duration-300"
                         >
                           <i
                             className="fab fa-github text-xl hover:scale-110 
@@ -237,8 +258,9 @@ const ProjectsSection: React.FC = () => {
                           href={project.demoLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-500 hover:text-gray-700 dark:text-gray-400 
-                            dark:hover:text-gray-200 transition-colors duration-300"
+                          className="text-gray-600 dark:text-gray-400 
+                            hover:text-gray-900 dark:hover:text-white
+                            transition-all duration-300"
                         >
                           <i
                             className="fas fa-external-link-alt text-xl hover:scale-110 
@@ -250,21 +272,21 @@ const ProjectsSection: React.FC = () => {
                   </div>
 
                   <div
-                    className={`overflow-hidden transition-all duration-300
+                    className={`overflow-hidden transition-all duration-500
                       ${
                         activeProject === project.id
-                          ? "max-h-[500px] opacity-100 mt-4"
+                          ? "max-h-[500px] opacity-100 mt-6"
                           : "max-h-0 opacity-0"
                       }`}
                   >
                     <div className="space-y-4">
-                      <p className="text-gray-600 dark:text-gray-400">
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                         {project.fullDescription}
                       </p>
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         {project.highlights.map((highlight, idx) => (
-                          <div key={idx} className="flex items-center gap-2">
-                            <i className="fas fa-check text-primary-500" />
+                          <div key={idx} className="flex items-start gap-3">
+                            <i className="fas fa-check text-indigo-500 dark:text-indigo-400 mt-1" />
                             <span className="text-gray-700 dark:text-gray-300">
                               {highlight}
                             </span>

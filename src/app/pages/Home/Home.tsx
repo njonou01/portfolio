@@ -11,6 +11,7 @@ import EducationSection from "./components/EducationSection";
 import ProjectsSection from "./components/ProjectsSection";
 import SkillsSection from "./components/SkillsSection";
 import ContactSection from "./components/ContactSection";
+import AboutSection from "./components/AboutSection";
 const Home: React.FC = () => {
   interface Language {
     code: "fr" | "en";
@@ -34,7 +35,8 @@ const Home: React.FC = () => {
   const [currentLang, setCurrentLang] = useState(languages[0]);
   const [isDark, setIsDark] = useState(false);
   const toggleTheme = () => {
-    setIsDark(!isDark);
+    setIsDark(isDark);
+    document.documentElement.classList.toggle("dark", isDark);
   };
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -42,14 +44,14 @@ const Home: React.FC = () => {
     });
   }, []);
   return (
-    <>
+    <div className={`min-h-screen ${isDark ? "dark" : ""}`}>
       <ScrollProgress />
       <ScrollTopButton />
       <Navbar
         languages={languages}
         isScrolled={isScrolled}
         openMobileNav={() => setIsMobileNavOpen(true)}
-        isDark={true}
+        isDark={isDark}
         toggleTheme={() => setIsDark(!isDark)}
       />
 
@@ -58,6 +60,7 @@ const Home: React.FC = () => {
         imgRatio={1.3}
         profilePath={profilePath}
       />
+      <AboutSection />
       <SkillsSection />
       <ProjectsSection />
       <EducationSection />
@@ -75,7 +78,7 @@ const Home: React.FC = () => {
       />
 
       <Footer />
-    </>
+    </div>
   );
 };
 
