@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gaby NJONOU</title>
+    <script type="module" crossorigin src="/portfolio/assets/index-C2VNQDhf.js"></script>
+    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-CsZouTKG.css">
+  </head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+    :root {
+      --primary-gradient: linear-gradient(
+        -45deg,
+        #4338ca,
+        #6366f1,
+        #818cf8,
+        #6366f1
+      );
+      --secondary-gradient: linear-gradient(135deg, #3730a3 0%, #4f46e5 100%);
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes move-bg {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 20px 20px;
+      }
+    }
+    body {
+      font-family: "Space Grotesk", sans-serif;
+    }
+    .gradient-animation {
+      background: var(--primary-gradient);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    .tech-card {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      -webkit-backdrop-filter: blur(10px);
+              backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .dark .glass-card {
+      background: rgba(17, 24, 39, 0.7);
+    }
+    .floating-tech {
+      animation: floatingTech 3s ease-in-out infinite;
+      animation-delay: calc(var(--delay) * 1s);
+    }
+    @keyframes floatingTech {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    .skill-progress {
+      position: relative;
+      height: 6px;
+      background: rgba(99, 102, 241, 0.1);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .skill-progress::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: var(--progress);
+      background: linear-gradient(90deg, #4338ca, #6366f1);
+      animation: progressAnimation 1.5s ease-out forwards;
+      transform-origin: left;
+    }
+    @keyframes progressAnimation {
+      from {
+        transform: scaleX(0);
+      }
+
+      to {
+        transform: scaleX(1);
+      }
+    }
+  </style>
+  <body class="bg-gradient-to-br from-gray-50 to-gray-100">
+    <div id="root"></div>
+  </body>
+</html>
